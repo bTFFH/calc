@@ -14,7 +14,7 @@ namespace Простой_Калькулятор
     {
         private string upper = "0";
         private string lower = "";
-        private string button_name = "";
+        private bool flag = false;
         private double temp = 0;
         private double result = 0;
         public char ev;
@@ -24,6 +24,19 @@ namespace Простой_Калькулятор
             InitializeComponent();
         }
 
+        private void flag_check()
+        {
+            if (flag)
+            {
+                button12.BackColor = Color.FromName("Control");
+                button13.BackColor = Color.FromName("Control");
+                button14.BackColor = Color.FromName("Control");
+                button15.BackColor = Color.FromName("Control");
+                button16.BackColor = Color.FromName("Control");
+                button17.BackColor = Color.FromName("Control");
+            }
+        }
+
         private void text_Change()
         {
             label1.Text = upper;
@@ -31,6 +44,7 @@ namespace Простой_Калькулятор
 
         private void increment(int el)
         {
+            flag_check();
             if (upper == "0")
                 upper = el.ToString();
             else
@@ -164,6 +178,8 @@ namespace Простой_Калькулятор
         private void button14_Click(object sender, EventArgs e)
         {
             // +
+            button14.BackColor = Color.Gold;
+            flag = true;
             button_event('+');
             /*button14.BackColor = Color.LightYellow;
             button_name = "button14";*/
@@ -172,30 +188,40 @@ namespace Простой_Калькулятор
         private void button13_Click(object sender, EventArgs e)
         {
             // -
+            button13.BackColor = Color.Gold;
+            flag = true;
             button_event('-');
         }
 
         private void button15_Click(object sender, EventArgs e)
         {
             // *
+            button15.BackColor = Color.Gold;
+            flag = true;
             button_event('*');
         }
 
         private void button16_Click(object sender, EventArgs e)
         {
             // /
+            button16.BackColor = Color.Gold;
+            flag = true;
             button_event('/');
         }
 
         private void button12_Click(object sender, EventArgs e)
         {
             // =
+            button12.BackColor = Color.Gold;
+            flag = true;
             button_event('=');
         }
 
         private void button17_Click(object sender, EventArgs e)
         {
             // %
+            button17.BackColor = Color.Gold;
+            flag = true;
             button_event('%');
         }
 
@@ -212,6 +238,7 @@ namespace Простой_Калькулятор
         private void button19_Click(object sender, EventArgs e)
         {
             // AC / C
+            flag_check();
             upper = "0";
             temp = 0;
             result = 0;
