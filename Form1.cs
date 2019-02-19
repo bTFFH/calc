@@ -16,7 +16,6 @@ namespace Простой_Калькулятор
         private string lower = "";
         private bool flag = false;
         private double temp = 0;
-        //private double result = 0;
         public char ev;
 
         public Form1()
@@ -49,9 +48,7 @@ namespace Простой_Калькулятор
                 upper = el.ToString();
             else
                 upper += el.ToString();
-            text_Change();
-            //if (button_name.Length != 0)
-                
+            text_Change();              
         }
 
         private double operation(double el1, double el2, char ev)
@@ -71,21 +68,24 @@ namespace Простой_Калькулятор
                     case '*':
                         ret = el1 * el2;
                         break;
-                    case '%':
-                        // need to add button's behavior
-                        break;
                 }
             return ret;
         }
 
         private void button_event(char ev)
         {
-            if (ev == '=')
+            if (ev == '%')
+            {
+                double el;
+                el = temp / 100 * Math.Round(double.Parse(upper));
+                upper = el.ToString();
+                text_Change();
+            }
+            else if (ev == '=')
             {
                 temp = operation(temp, double.Parse(upper), this.ev);
                 label1.Text = temp.ToString();
                 lower = temp.ToString();
-                //result = 0;
                 temp = 0;
                 upper = "0";
             }
@@ -179,8 +179,6 @@ namespace Простой_Калькулятор
             button14.BackColor = Color.Gold;
             flag = true;
             button_event('+');
-            /*button14.BackColor = Color.LightYellow;
-            button_name = "button14";*/
         }
 
         private void button13_Click(object sender, EventArgs e)
@@ -239,7 +237,6 @@ namespace Простой_Калькулятор
             flag_check();
             upper = "0";
             temp = 0;
-            //result = 0;
             label2.Text = lower;
             text_Change();
         }
