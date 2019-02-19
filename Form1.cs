@@ -12,8 +12,10 @@ namespace Простой_Калькулятор
 {
     public partial class Form1 : Form
     {
-        private int upper = 0;
-        private int lower = 0;
+        private string upper = "0";
+        private string lower;
+        private int temp;
+        private int shift = 1;
 
         public Form1()
         {
@@ -22,111 +24,84 @@ namespace Простой_Калькулятор
 
         private void text_Change()
         {
+            label1.Text = upper.ToString();
+        }
 
+        private void increment(int el)
+        {
+            if (upper == "0")
+                upper = el.ToString();
+            else
+                upper += el.ToString();
+            text_Change();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             // 1
-            if (upper == 0)
-                upper = 1;
-            else
-                upper = upper * 10 + 1;
-            text_Change();
+            increment(1);
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             // 2
-            if (upper == 0)
-                upper = 2;
-            else
-                upper = upper * 10 + 2;
-            text_Change();
+            increment(2);
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
             // 3
-            if (upper == 0)
-                upper = 3;
-            else
-                upper = upper * 10 + 3;
-            text_Change();
+            increment(3);
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
             // 4
-            if (upper == 0)
-                upper = 4;
-            else
-                upper = upper * 10 + 4;
-            text_Change();
+            increment(4);
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
             // 5
-            if (upper == 0)
-                upper = 5;
-            else
-                upper = upper * 10 + 5;
-            text_Change();
+            increment(5);
         }
 
         private void button6_Click(object sender, EventArgs e)
         {
             // 6
-            if (upper == 0)
-                upper = 6;
-            else
-                upper = upper * 10 + 6;
-            text_Change();
+            increment(6);
         }
 
         private void button7_Click(object sender, EventArgs e)
         {
             // 7
-            if (upper == 0)
-                upper = 7;
-            else
-                upper = upper * 10 + 7;
-            text_Change();
+            increment(7);
         }
 
         private void button8_Click(object sender, EventArgs e)
         {
             // 8
-            if (upper == 0)
-                upper = 8;
-            else
-                upper = upper * 10 + 8;
-            text_Change();
+            increment(8);
         }
 
         private void button9_Click(object sender, EventArgs e)
         {
             // 9
-            if (upper == 0)
-                upper = 9;
-            else
-                upper = upper * 10 + 9;
-            text_Change();
+            increment(9);
         }
 
         private void button10_Click(object sender, EventArgs e)
         {
             // 0
-            if (upper != 0)
-                upper *= 10;
-            text_Change();
+            increment(0);
         }
 
         private void button11_Click(object sender, EventArgs e)
         {
             // .
-
+            if (upper.IndexOf(',') != -1)
+                upper += ',';
+            text_Change();
         }
 
         private void button14_Click(object sender, EventArgs e)
