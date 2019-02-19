@@ -13,7 +13,7 @@ namespace Простой_Калькулятор
     public partial class Form1 : Form
     {
         private string upper = "0";
-        private string lower;
+        private string lower = "";
         private string button_name = "";
         private double temp = 0;
         private double result = 0;
@@ -70,10 +70,13 @@ namespace Простой_Калькулятор
             {
                 result = operation(result, temp, this.ev);
                 result = operation(result, double.Parse(upper), ev);
+                result = 0;
+                upper = "0";
             }
             else if (temp == 0)
             {
                 temp = double.Parse(upper);
+                upper = "0";
                 this.ev = ev;
             }
             else
@@ -83,7 +86,8 @@ namespace Простой_Калькулятор
                 this.ev = ev;
             }
             label1.Text = result.ToString();
-            result = 0;
+            lower = result.ToString();
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -149,7 +153,7 @@ namespace Простой_Калькулятор
         private void button11_Click(object sender, EventArgs e)
         {
             // .
-            if (upper.IndexOf(',') != -1)
+            if (upper.IndexOf(',') == -1)
                 upper += ',';
             text_Change();
         }
@@ -157,52 +161,56 @@ namespace Простой_Калькулятор
         private void button14_Click(object sender, EventArgs e)
         {
             // +
-            
-            button14.BackColor = Color.LightYellow;
-            button_name = "button14";
+            button_event('+');
+            /*button14.BackColor = Color.LightYellow;
+            button_name = "button14";*/
         }
 
         private void button13_Click(object sender, EventArgs e)
         {
             // -
-
+            button_event('-');
         }
 
         private void button15_Click(object sender, EventArgs e)
         {
             // *
-
+            button_event('*');
         }
 
         private void button16_Click(object sender, EventArgs e)
         {
             // /
-
+            button_event('/');
         }
 
         private void button12_Click(object sender, EventArgs e)
         {
             // =
-
+            button_event('=');
         }
 
         private void button17_Click(object sender, EventArgs e)
         {
             // %
-
+            button_event('%');
         }
 
         private void button18_Click(object sender, EventArgs e)
         {
             // +/-
-
+            if (upper.IndexOf('-') == -1)
+                upper = upper.Insert(0, "-");
+            else
+                upper = upper.TrimStart('-');
+            text_Change();
         }
 
         private void button19_Click(object sender, EventArgs e)
         {
             // AC / C
             upper = "0";
-            label2.Text = result.ToString();
+            label2.Text = lower;
             text_Change();
         }
 

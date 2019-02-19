@@ -1,0 +1,10 @@
+I:\wea\progs\C#\Простой_Калькулятор\Простой_Калькулятор\bin\Debug\Простой_Калькулятор.exe.config
+I:\wea\progs\C#\Простой_Калькулятор\Простой_Калькулятор\bin\Debug\Простой_Калькулятор.exe
+I:\wea\progs\C#\Простой_Калькулятор\Простой_Калькулятор\bin\Debug\Простой_Калькулятор.pdb
+I:\wea\progs\C#\Простой_Калькулятор\Простой_Калькулятор\obj\Debug\Простой_Калькулятор.csprojAssemblyReference.cache
+I:\wea\progs\C#\Простой_Калькулятор\Простой_Калькулятор\obj\Debug\Простой_Калькулятор.Form1.resources
+I:\wea\progs\C#\Простой_Калькулятор\Простой_Калькулятор\obj\Debug\Простой_Калькулятор.Properties.Resources.resources
+I:\wea\progs\C#\Простой_Калькулятор\Простой_Калькулятор\obj\Debug\Простой_Калькулятор.csproj.GenerateResource.cache
+I:\wea\progs\C#\Простой_Калькулятор\Простой_Калькулятор\obj\Debug\Простой_Калькулятор.csproj.CoreCompileInputs.cache
+I:\wea\progs\C#\Простой_Калькулятор\Простой_Калькулятор\obj\Debug\Простой_Калькулятор.exe
+I:\wea\progs\C#\Простой_Калькулятор\Простой_Калькулятор\obj\Debug\Простой_Калькулятор.pdb
