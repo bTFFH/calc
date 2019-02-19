@@ -14,8 +14,10 @@ namespace Простой_Калькулятор
     {
         private string upper = "0";
         private string lower;
-        private int temp;
-        private int shift = 1;
+        private string button_name = "";
+        private double temp = 0;
+        private double result = 0;
+        public char ev;
 
         public Form1()
         {
@@ -24,7 +26,7 @@ namespace Простой_Калькулятор
 
         private void text_Change()
         {
-            label1.Text = upper.ToString();
+            label1.Text = upper;
         }
 
         private void increment(int el)
@@ -34,6 +36,54 @@ namespace Простой_Калькулятор
             else
                 upper += el.ToString();
             text_Change();
+            //if (button_name.Length != 0)
+                
+        }
+
+        private double operation(double el1, double el2, char ev)
+        {
+            double ret = 0;
+            switch (ev)
+                {
+                    case '+':
+                        ret = el1 + el2;
+                        break;
+                    case '-':
+                        ret = el1 + el2;
+                        break;
+                    case '/':
+                        ret = el1 + el2;
+                        break;
+                    case '*':
+                        ret = el1 + el2;
+                        break;
+                    case '%':
+                        // need to add button's behavior
+                        break;
+                }
+            return ret;
+        }
+
+        private void button_event(char ev)
+        {
+            if (ev == '=')
+            {
+                result = operation(result, temp, this.ev);
+                result = operation(result, double.Parse(upper), ev);
+            }
+            else if (temp == 0)
+            {
+                temp = double.Parse(upper);
+                this.ev = ev;
+            }
+            else
+            {
+                result = operation(temp, double.Parse(upper), this.ev);
+                temp = double.Parse(upper);
+                this.ev = ev;
+            }
+            label1.Text = result.ToString();
+            result = 0;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -107,7 +157,9 @@ namespace Простой_Калькулятор
         private void button14_Click(object sender, EventArgs e)
         {
             // +
-
+            
+            button14.BackColor = Color.LightYellow;
+            button_name = "button14";
         }
 
         private void button13_Click(object sender, EventArgs e)
@@ -149,7 +201,8 @@ namespace Простой_Калькулятор
         private void button19_Click(object sender, EventArgs e)
         {
             // AC / C
-            upper = 0;
+            upper = "0";
+            label2.Text = result.ToString();
             text_Change();
         }
 
