@@ -49,13 +49,13 @@ namespace Простой_Калькулятор
                         ret = el1 + el2;
                         break;
                     case '-':
-                        ret = el1 + el2;
+                        ret = el1 - el2;
                         break;
                     case '/':
-                        ret = el1 + el2;
+                        ret = el1 / el2;
                         break;
                     case '*':
-                        ret = el1 + el2;
+                        ret = el1 * el2;
                         break;
                     case '%':
                         // need to add button's behavior
@@ -68,9 +68,13 @@ namespace Простой_Калькулятор
         {
             if (ev == '=')
             {
-                result = operation(result, temp, this.ev);
-                result = operation(result, double.Parse(upper), ev);
+                if (result != 0)
+                    result = operation(result, temp, this.ev);
+                result = operation(temp, double.Parse(upper), this.ev);
+                label1.Text = result.ToString();
+                lower = result.ToString();
                 result = 0;
+                temp = 0;
                 upper = "0";
             }
             else if (temp == 0)
@@ -85,8 +89,7 @@ namespace Простой_Калькулятор
                 temp = double.Parse(upper);
                 this.ev = ev;
             }
-            label1.Text = result.ToString();
-            lower = result.ToString();
+            
             
         }
 
@@ -210,6 +213,8 @@ namespace Простой_Калькулятор
         {
             // AC / C
             upper = "0";
+            temp = 0;
+            result = 0;
             label2.Text = lower;
             text_Change();
         }
