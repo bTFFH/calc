@@ -16,7 +16,7 @@ namespace Простой_Калькулятор
         private string lower = "";
         private bool flag = false;
         private double temp = 0;
-        private double result = 0;
+        //private double result = 0;
         public char ev;
 
         public Form1()
@@ -82,12 +82,10 @@ namespace Простой_Калькулятор
         {
             if (ev == '=')
             {
-                if (result != 0)
-                    result = operation(result, temp, this.ev);
-                result = operation(temp, double.Parse(upper), this.ev);
-                label1.Text = result.ToString();
-                lower = result.ToString();
-                result = 0;
+                temp = operation(temp, double.Parse(upper), this.ev);
+                label1.Text = temp.ToString();
+                lower = temp.ToString();
+                //result = 0;
                 temp = 0;
                 upper = "0";
             }
@@ -99,8 +97,8 @@ namespace Простой_Калькулятор
             }
             else
             {
-                result = operation(temp, double.Parse(upper), this.ev);
-                temp = double.Parse(upper);
+                temp = operation(temp, double.Parse(upper), this.ev);
+                upper = "0";
                 this.ev = ev;
             }
             
@@ -241,7 +239,7 @@ namespace Простой_Калькулятор
             flag_check();
             upper = "0";
             temp = 0;
-            result = 0;
+            //result = 0;
             label2.Text = lower;
             text_Change();
         }
