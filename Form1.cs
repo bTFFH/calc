@@ -23,6 +23,19 @@ namespace Простой_Калькулятор
             InitializeComponent();
         }
 
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lower_check()
+        {
+            if (lower == "")
+                return;
+            label2.Text = lower;
+            lower = "";
+        }
+
         private void flag_check()
         {
             if (flag)
@@ -44,6 +57,7 @@ namespace Простой_Калькулятор
         private void increment(int el)
         {
             flag_check();
+            lower_check();
             if (upper == "0")
                 upper = el.ToString();
             else
@@ -88,6 +102,7 @@ namespace Простой_Калькулятор
                 lower = temp.ToString();
                 temp = 0;
                 upper = "0";
+                this.ev = '+';
             }
             else if (temp == 0)
             {
@@ -99,6 +114,7 @@ namespace Простой_Калькулятор
             {
                 temp = operation(temp, double.Parse(upper), this.ev);
                 upper = "0";
+                lower = temp.ToString();
                 this.ev = ev;
             }
             
@@ -235,20 +251,20 @@ namespace Простой_Калькулятор
         {
             // AC / C
             flag_check();
+            lower_check();
             upper = "0";
             temp = 0;
-            label2.Text = lower;
             text_Change();
         }
 
         private void label1_Click(object sender, EventArgs e)
         {
-            
+            Clipboard.SetData(label1.Text, TextDataFormat.UnicodeText);
         }
 
         private void label2_Click(object sender, EventArgs e)
         {
-
+            Clipboard.SetData(label2.Text, TextDataFormat.UnicodeText);
         }
     }
 }
