@@ -49,6 +49,7 @@
             this.button19 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.helpProvider1 = new System.Windows.Forms.HelpProvider();
             this.SuspendLayout();
             // 
             // button1
@@ -283,10 +284,12 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.SystemColors.Info;
             this.label1.Font = new System.Drawing.Font("Times New Roman", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.helpProvider1.SetHelpString(this.label1, "");
             this.label1.Location = new System.Drawing.Point(10, 9);
             this.label1.MaximumSize = new System.Drawing.Size(240, 30);
             this.label1.MinimumSize = new System.Drawing.Size(240, 30);
             this.label1.Name = "label1";
+            this.helpProvider1.SetShowHelp(this.label1, true);
             this.label1.Size = new System.Drawing.Size(240, 30);
             this.label1.TabIndex = 19;
             this.label1.Text = "0";
@@ -300,10 +303,12 @@
             this.label2.BackColor = System.Drawing.SystemColors.Info;
             this.label2.Cursor = System.Windows.Forms.Cursors.Default;
             this.label2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.helpProvider1.SetHelpString(this.label2, "");
             this.label2.Location = new System.Drawing.Point(11, 50);
             this.label2.MaximumSize = new System.Drawing.Size(240, 20);
             this.label2.MinimumSize = new System.Drawing.Size(240, 20);
             this.label2.Name = "label2";
+            this.helpProvider1.SetShowHelp(this.label2, true);
             this.label2.Size = new System.Drawing.Size(240, 20);
             this.label2.TabIndex = 20;
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -335,7 +340,10 @@
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.HelpButton = true;
             this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Form1";
             this.Text = "Простой калькулятор";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -367,6 +375,7 @@
         private System.Windows.Forms.Button button19;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.HelpProvider helpProvider1;
     }
 }
 

@@ -25,7 +25,27 @@ namespace Простой_Калькулятор
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            helpProvider1.SetHelpString(label1, "Current operation\r\nDouble click to copy result");
+            helpProvider1.SetHelpString(label2, "Result of the last operation\r\nDouble click to copy result");
+            helpProvider1.SetHelpString(button1, "Add 1 at the end of current number");
+            helpProvider1.SetHelpString(button2, "Add 2 at the end of current number");
+            helpProvider1.SetHelpString(button3, "Add 3 at the end of current number");
+            helpProvider1.SetHelpString(button4, "Add 4 at the end of current number");
+            helpProvider1.SetHelpString(button5, "Add 5 at the end of current number");
+            helpProvider1.SetHelpString(button6, "Add 6 at the end of current number");
+            helpProvider1.SetHelpString(button7, "Add 7 at the end of current number");
+            helpProvider1.SetHelpString(button8, "Add 8 at the end of current number");
+            helpProvider1.SetHelpString(button9, "Add 9 at the end of current number");
+            helpProvider1.SetHelpString(button10, "Add 0 at the end of current number");
+            helpProvider1.SetHelpString(button11, "Make current integer number into float");
+            helpProvider1.SetHelpString(button12, "Calculate result");
+            helpProvider1.SetHelpString(button13, "Substruct next number");
+            helpProvider1.SetHelpString(button14, "Add next number");
+            helpProvider1.SetHelpString(button15, "Multiple by next number");
+            helpProvider1.SetHelpString(button16, "Divide by next number");
+            helpProvider1.SetHelpString(button17, "Specify percent of the current number");
+            helpProvider1.SetHelpString(button18, "Change sign of the current number");
+            helpProvider1.SetHelpString(button19, "Clear current number and add it to last result");
         }
 
         private void lower_check()
