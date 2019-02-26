@@ -279,12 +279,36 @@ namespace Простой_Калькулятор
 
         private void label1_Click(object sender, EventArgs e)
         {
-            Clipboard.SetData(label1.Text, TextDataFormat.UnicodeText);
+            if (label1.Text != "")
+                Clipboard.SetData(label1.Text, TextDataFormat.UnicodeText);
         }
 
         private void label2_Click(object sender, EventArgs e)
         {
-            Clipboard.SetData(label2.Text, TextDataFormat.UnicodeText);
+            if (label2.Text != "")
+                Clipboard.SetData(label2.Text, TextDataFormat.UnicodeText);
+        }
+
+        private void label1_MouseLeave(object sender, EventArgs e)
+        {
+            toolTip1.Hide(label1);
+        }
+
+        private void label1_MouseEnter(object sender, EventArgs e)
+        {
+            toolTip1.Show("Current operation\r\nDouble click to copy result",
+                label1);
+        }
+
+        private void label2_MouseLeave(object sender, EventArgs e)
+        {
+            toolTip1.Hide(label2);
+        }
+
+        private void label2_MouseEnter(object sender, EventArgs e)
+        {
+            toolTip1.Show("Result of the last operation\r\nDouble click to " +
+                            "copy result", label2);
         }
     }
 }
